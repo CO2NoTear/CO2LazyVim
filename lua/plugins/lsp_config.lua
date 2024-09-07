@@ -10,8 +10,8 @@ return {
       },
     },
     setup = {
-      neocmake = function()
-        require("neocmake").setup({
+      neocmakelsp = function()
+        require("neocmakelsp").setup({
 
           default_config = {
             cmd = { "neocmakelsp", "--stdio" },
