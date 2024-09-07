@@ -2,8 +2,8 @@ return {
   "williamboman/mason.nvim",
   opts = {
     ensure_installed = {
-      "clangd",
-      "pyright",
+      -- "clangd",
+      -- "pyright",
       "black",
       "rust-analyzer",
     },

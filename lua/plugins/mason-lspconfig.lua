@@ -1,4 +1,10 @@
 return {
   "williamboman/mason-lspconfig.nvim",
-  opts = {},
+  opts = {
+    servers = {
+      neocmake = {
+        enabled = false,
+      },
+    },
+  },
 }
