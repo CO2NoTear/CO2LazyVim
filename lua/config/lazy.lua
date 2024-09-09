@@ -45,3 +45,4 @@ require("lazy").setup({
     },
   },
 })
+require("nvim-treesitter.install").prefer_git = true
