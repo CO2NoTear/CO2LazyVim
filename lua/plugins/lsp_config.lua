@@ -1,15 +1,24 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
-    servers = {
-      clangd = {
-        on_attach = function()
-          require("clangd_extensions.inlay_hints").setup_autocmd()
-          require("clangd_extensions.inlay_hints").set_inlay_hints()
-        end,
-      },
-      pyright = {},
-      ruff = {},
+    setup = {
+      clangd = function(_, opts)
+        opts.cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=iwyu",
+          "--completion-style=detailed",
+          "--function-arg-placeholders",
+          "--fallback-style=llvm",
+        }
+        opts.init_options = {
+          usePlaceholders = true,
+          completeUnimported = true,
+          clangdFileStatus = true,
+          fallbackFlags = { "-std=c++20" },
+        }
+      end,
     },
   },
 }
