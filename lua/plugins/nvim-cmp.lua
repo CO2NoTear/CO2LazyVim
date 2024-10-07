@@ -25,8 +25,8 @@ return {
     return {
       snippet = {
         expand = function(item)
-          -- return LazyVim.cmp.expand(item.body)
-          require("luasnip").lsp_expand(item.body)
+          return LazyVim.cmp.expand(item.body)
+          -- require("luasnip").lsp_expand(item.body)
         end,
       },
 
@@ -58,7 +58,7 @@ return {
         { name = "path" },
       }, {
         { name = "buffer" },
-        { name = "luasnip" },
+        { name = "snippets" },
       }),
       formatting = {
         format = function(_, item)
