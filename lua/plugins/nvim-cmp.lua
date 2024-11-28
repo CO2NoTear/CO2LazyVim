@@ -16,7 +16,22 @@ return {
   --   auto_brackets = { "python" }
   -- }
   -- ```
-
+  keys = {
+    {
+      "<C-L>",
+      function()
+        require("luasnip").jump(1)
+      end,
+      mode = { "i", "s" },
+    },
+    {
+      "<C-H>",
+      function()
+        require("luasnip").jump(-1)
+      end,
+      mode = { "i", "s" },
+    },
+  },
   opts = function()
     vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
     local cmp = require("cmp")
@@ -25,8 +40,8 @@ return {
     return {
       snippet = {
         expand = function(item)
-          return LazyVim.cmp.expand(item.body)
-          -- require("luasnip").lsp_expand(item.body)
+          -- LazyVim.cmp.expand(item.body)
+          require("luasnip").lsp_expand(item.body)
         end,
       },
 
@@ -44,17 +59,18 @@ return {
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<tab>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<S-CR>"] = cmp.mapping.confirm({
-          behavior = cmp.ConfirmBehavior.Replace,
-          select = true,
-        }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        ["<C-CR>"] = function(fallback)
-          cmp.abort()
-          fallback()
-        end,
+        -- ["<S-CR>"] = cmp.mapping.confirm({
+        --   behavior = cmp.ConfirmBehavior.Replace,
+        --   select = true,
+        -- }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        -- ["<C-CR>"] = function(fallback)
+        --   cmp.abort()
+        --   fallback()
+        -- end,
       }),
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
+        { name = "luasnip" },
         { name = "path" },
       }, {
         { name = "buffer" },
