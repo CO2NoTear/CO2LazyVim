@@ -1,3 +1,11 @@
+local wk = require("which-key")
+wk.add({
+  { "<leader>y", group = "yazi", icon = "󰇥" },
+  { "<leader>yz", icon = "" },
+  { "<leader>yw", icon = "󰘌" },
+  { "<leader>yt", icon = "" },
+})
+
 return {
   "mikavilpas/yazi.nvim",
   event = "VeryLazy",
