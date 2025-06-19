@@ -14,3 +14,20 @@
 --     end
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  callback = function()
+    if vim.bo.buftype == "terminal" then
+      return
+    end
+
+    local file = vim.fn.expand("%:p:h")
+    local root = LazyVim.root()
+
+    if file == "" then
+      return
+    end
+
+    vim.fn.chdir(vim.startswith(file, root) and root or file)
+  end,
+})
