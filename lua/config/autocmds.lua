@@ -17,7 +17,7 @@
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   callback = function()
-    if vim.bo.buftype == "terminal" then
+    if vim.bo.buftype then
       return
     end
 
