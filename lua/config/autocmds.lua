@@ -17,7 +17,7 @@
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
   callback = function()
-    if vim.bo.buftype then
+    if vim.bo.buftype ~= "" or vim.o.filetype == "oil" then
       return
     end
 
@@ -26,6 +26,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 
     if file == "" then
       return
+    elseif root == "/home/co2notear/" then
+      vim.fn.chdir(file)
     end
 
     vim.fn.chdir(vim.startswith(file, root) and root or file)
