@@ -7,4 +7,10 @@ return {
     "rmehri01/onenord.nvim",
     opts = {},
   },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "onenord",
+    },
+  },
 }
