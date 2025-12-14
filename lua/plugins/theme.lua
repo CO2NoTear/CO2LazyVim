@@ -1,16 +1,18 @@
 return {
-  "folke/tokyonight.nvim",
-  opts = {
-    style = "storm",
-  },
   {
-    "rmehri01/onenord.nvim",
-    opts = {},
+    "folke/tokyonight.nvim",
+    opts = {
+      style = "storm",
+    },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onenord",
+      -- colorscheme = "onenord",
+      colorscheme = "retrobox",
     },
+  },
+  {
+    "rmehri01/onenord.nvim",
   },
 }

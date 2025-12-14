@@ -20,6 +20,14 @@ return {
       ["~"] = { "actions.cd", mode = "n" },
       -- ["~"] = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
       ["<Leader>os"] = { "actions.change_sort", mode = "n" },
+      ["<Leader>od"] = {
+        callback = function()
+          vim.b.detail = not vim.b.detail
+          require("oil").set_columns(vim.b.detail and { "icon", "permissions", "size", "mtime" } or { "icon" })
+        end,
+        desc = "oil show file details",
+        mode = "n",
+      },
       ["<Leader>x"] = "actions.open_external",
       ["<Leader>H"] = { "actions.toggle_hidden", mode = "n" },
       ["<Leader>\\"] = { "actions.toggle_trash", mode = "n" },
