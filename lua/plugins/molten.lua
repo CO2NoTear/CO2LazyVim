@@ -1,10 +1,13 @@
 if vim.g.neovide then
   return {
-    "benlubas/molten-nvim",
-    enabled = false,
-  }, {
-    "3rd/image.nvim",
-    enabled = false,
+    {
+      "benlubas/molten-nvim",
+      enabled = false,
+    },
+    {
+      "3rd/image.nvim",
+      enabled = false,
+    },
   }
 else
   return {
