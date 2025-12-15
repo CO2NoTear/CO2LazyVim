@@ -14,3 +14,22 @@
 --     end
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+  callback = function()
+    if vim.bo.buftype ~= "" or vim.o.filetype == "oil" then
+      return
+    end
+
+    local file = vim.fn.expand("%:p:h")
+    local root = LazyVim.root()
+
+    if file == "" then
+      return
+    elseif root == "/home/co2notear/" then
+      vim.fn.chdir(file)
+    end
+
+    vim.fn.chdir(vim.startswith(file, root) and root or file)
+  end,
+})
