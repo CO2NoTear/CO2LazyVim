@@ -4,4 +4,6 @@
 vim.o.relativenumber = true
 vim.o.mousemoveevent = true
 vim.g.lazyvim_python_lsp = "pyright"
+vim.g.ai_cmp = false
+vim.g.python3_host_prog = "~/.config/nvim/.venv/bin/python"
 -- vim.g.lazyvim_python_ruff = "ruff"

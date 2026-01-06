@@ -23,6 +23,8 @@ else
         -- this is an example, not a default. Please see the readme for more configuration options
         vim.g.molten_output_win_max_height = 20
         vim.g.molten_image_provider = "image.nvim"
+        vim.g.molten_copy_output = true
+        vim.g.molten_atuo_image_popup = true
 
         -- don't change the mappings (unless it's related to your bug)
         vim.keymap.set("n", "<localleader>mi", ":MoltenInit<CR>")
